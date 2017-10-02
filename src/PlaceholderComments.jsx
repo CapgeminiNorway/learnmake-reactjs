@@ -84,7 +84,7 @@ const CommentGrid = translate(({ ids, data, basePath, translate }) => (
                 </ReferenceField>
             </CardText>
             <CardActions style={{ textAlign: 'right' }}>
-                <EditButton resource="posts" basePath={basePath} record={data[id]} />
+                {/* <EditButton resource="posts" basePath={basePath} record={data[id]} /> */}
                 <ShowButton resource="posts" basePath={basePath} record={data[id]}/>
             </CardActions>
         </Card>,

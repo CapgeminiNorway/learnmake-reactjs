@@ -65,7 +65,7 @@ const titleFieldStyle = { maxWidth: '20em', overflow: 'hidden', textOverflow: 'e
 export const PostList = ({ ...props }) => (
     <List {...props}
       //filters={<PostFilter />}
-      sort={{ field: 'published_at', order: 'DESC' }}>
+      sort={{ field: 'id', order: 'ASC' }}>
         <Responsive
             small={
                 <SimpleList
@@ -78,6 +78,7 @@ export const PostList = ({ ...props }) => (
                 <Datagrid>
                     <TextField source="id" />
                     <TextField source="title" style={titleFieldStyle} />
+                    {/*
                     <DateField source="published_at" style={{ fontStyle: 'italic' }} />
                     <BooleanField source="commentable" label="resources.posts.fields.commentable_short" />
                     <NumberField source="views" />
@@ -86,7 +87,7 @@ export const PostList = ({ ...props }) => (
                             <ChipField source="name" />
                         </SingleFieldList>
                     </ReferenceArrayField>
-
+                    */}
                     <ShowButton />
                 </Datagrid>
             }
@@ -199,14 +200,17 @@ export const PostShow = ({ ...props }) => (
                         <ChipField source="name" />
                     </SingleFieldList>
                 </ReferenceArrayField>
-                <DateField source="published_at" />
+
                 <SelectField source="category" choices={[
                     { name: 'Tech', id: 'tech' },
                     { name: 'Lifestyle', id: 'lifestyle' },
                 ]} />
+                {/*
+                <DateField source="published_at" />
                 <NumberField source="average_note" />
                 <BooleanField source="commentable" />
                 <TextField source="views" />
+                */}
             </Tab>
             <Tab label="post.form.comments">
                 <ReferenceManyField label="resources.posts.fields.comments" reference="comments" target="post_id" sort={{ field: 'created_at', order: 'DESC' }}>
