@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import '../node_modules/react-vis/dist/style.css';
+//import '../node_modules/react-vis/dist/style.css';
+import 'Vis.css';
 import {
   XYPlot,
   LineSeries, VerticalBarSeries, MarkSeries,
@@ -9,7 +10,7 @@ import {
   XAxis, YAxis
 } from 'react-vis';
 
-class App extends Component {
+class VisExample extends Component {
   render() {
     const data = [
       {x: 0, y: 8},
@@ -43,4 +44,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default VisExample;

@@ -8,8 +8,8 @@ import {
 
 import PostIcon from 'material-ui/svg-icons/action/book';
 import CommentIcon from 'material-ui/svg-icons/communication/chat-bubble';
-import { PostList, PostCreate, PostEdit, PostShow } from './posts';
-import { CommentList, CommentEdit, CommentCreate, CommentShow } from './comments';
+import { PostList, PostCreate, PostEdit, PostShow } from './PlaceholderPosts';
+import { CommentList, CommentEdit, CommentCreate, CommentShow } from './PlaceholderComments';
 
 import translations from './i18n';
 
