@@ -8,6 +8,7 @@ Dette prosjekt er et annet mulighet til å lære om rammeverker, plattformer og 
 - An introductory Book about ReactJS [survivejs](https://survivejs.com/react/getting-started/introduction-to-react/)  
 - Open source Library using ReactJS and Material UI [admin-on-rest](https://marmelab.com/admin-on-rest/)  
 - [Material UI](http://www.material-ui.com/)  
+- React visualization library [react-vis](https://uber.github.io/react-vis)  
 
 Miljøer som er utviklers beste venner!  
 - [GitHub](https://github.com/)  
@@ -34,4 +35,4 @@ Getting up and running is as easy as 1, 2, 3.
     ```
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).  
-It uses [React.js](https://facebook.github.io/react/), [admin-on-rest](https://marmelab.com/admin-on-rest/), [material.ui](http://www.material-ui.com/#/).   
+It uses [React.js](https://facebook.github.io/react/), [admin-on-rest](https://marmelab.com/admin-on-rest/), [material.ui](http://www.material-ui.com/#/), [react-vis](https://uber.github.io/react-vis).     
