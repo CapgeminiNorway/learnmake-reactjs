@@ -1,17 +1,17 @@
 export const messages = {
   pos: {
-      search: 'Search',
-      configuration: 'Configuration',
-      language: 'Language',
+      search: 'Søk',
+      configuration: 'Konfigurasjon',
+      language: 'Språk',
       theme: {
-          name: 'Theme',
-          light: 'Light',
-          dark: 'Dark',
+          name: 'Tema',
+          light: 'Lys',
+          dark: 'Mørk',
       },
   },
   resources: {
       posts: {
-          name: 'Post |||| Posts',
+          name: 'Post |||| Poster',
           fields: {
               allow_comments: 'Allow comments?',
               average_note: 'Average note',
@@ -32,11 +32,11 @@ export const messages = {
           },
       },
       comments: {
-          name: 'Comment |||| Comments',
+          name: 'Kommentar |||| Komentarer',
           fields: {
               body: 'Body',
               created_at: 'Created at',
-              post_id: 'Posts',
+              post_id: 'Post',
               author: {
                   name: 'Author',
               },
@@ -45,7 +45,7 @@ export const messages = {
   },
   post: {
       list: {
-          search: 'Search',
+          search: 'Søk',
       },
       form: {
           summary: 'Summary',
@@ -57,13 +57,13 @@ export const messages = {
           title: 'Post "%{title}"',
       },
       action: {
-          save_and_add: 'Save and Add',
-          save_and_show: 'Save and Show',
+          save_and_add: 'Lagre og Legg til',
+          save_and_show: 'Lagre og Vis',
       },
   },
   comment: {
       list: {
-          about: 'About',
+          about: 'Om',
       },
   },
 };

@@ -12,12 +12,22 @@ import { PostList, PostCreate, PostEdit, PostShow } from './PlaceholderPosts';
 import { CommentList, CommentEdit, CommentCreate, CommentShow } from './PlaceholderComments';
 
 import translations from './i18n';
+import customRoutes from './customRoutes';
+import Menu from './Menu';
+import themeReducer from './themeReducer';
+
+import createHistory from 'history/createBrowserHistory';
+const history = createHistory();
 
 const App = () => (
     <Admin
-      title={'Learning-by-Doing'}
+      title={'Learning by Doing...'}
       restClient={jsonServerRestClient('http://jsonplaceholder.typicode.com')}
       locale="en" messages={translations}
+      history={history}
+      customRoutes={customRoutes}
+      customReducers={{ theme: themeReducer }}
+      menu={Menu}
       >
 
     <Resource name="posts"
