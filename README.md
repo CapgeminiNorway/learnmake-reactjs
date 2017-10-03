@@ -15,7 +15,7 @@ Dette prosjekt er et annet mulighet til å lære om rammeverker, plattformer og 
 
 ## Online Demo  
 
-Deployed on Heroku! [click for online demo](https://cat-reactjs.herokuapp.com/)    
+Deployed on Heroku! [click for online demo](http://cat-reactjs.herokuapp.com/)    
 
 
 ## Setup development environment    
