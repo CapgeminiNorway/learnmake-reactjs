@@ -13,10 +13,14 @@ Dette prosjekt er et annet mulighet til å lære om rammeverker, plattformer og 
 - [Material UI](http://www.material-ui.com/)  
 - React visualization library [react-vis](https://uber.github.io/react-vis)  
 
+## Online Demo  
 
-## Getting Started with demo-using-reactjs  
+TODO: coming soon...    
 
-Getting up and running is as easy as 1, 2, 3.  
+
+## Setup development environment    
+
+Getting up and running for your dev-env is as easy as 1, 2, 3.  
 
 1. Make sure you have [NodeJS](https://nodejs.org/), [npm](https://www.npmjs.com/), and [Yarn](https://yarnpkg.com) installed.  
 
