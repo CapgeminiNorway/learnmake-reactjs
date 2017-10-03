@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
 //import '../node_modules/react-vis/dist/style.css';
-import 'Vis.css';
+import './Vis.css';
 import {
   XYPlot,
   LineSeries, VerticalBarSeries, MarkSeries,
@@ -26,17 +25,17 @@ class VisExample extends Component {
     ];
     return (
       <div className="App">
-        <XYPlot height={300} width= {300}>
+        <XYPlot width={800} height={400}>
           <VerticalGridLines />
           <HorizontalGridLines />
           <XAxis />
           <YAxis />
           <LineSeries data={data} />
         </XYPlot>
-        <XYPlot height={200} width={200}>
+        <XYPlot width={800} height={400}>
           <VerticalBarSeries data={data} />
         </XYPlot>
-        <XYPlot height={200} width={200}>
+        <XYPlot width={800} height={400}>
           <MarkSeries data={data} />
         </XYPlot>
       </div>

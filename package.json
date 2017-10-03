@@ -1,5 +1,5 @@
 {
-  "name": "learn-react-vis",
+  "name": "demo-using-reactjs",
   "version": "1.0.0",
   "homepage": "https://cat-reactjs.herokuapp.com",
   "license": "MIT",
@@ -17,16 +17,22 @@
     "admin-on-rest": "^1.3.1",
     "aor-language-norwegian": "^1.1.0",
     "aor-rich-text-input": "^1.0.2",
+    "qrcode.react": "^0.7.2",
     "react": "~15.5.4",
     "react-dom": "~15.5.4",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-scripts": "1.0.14",
     "react-tap-event-plugin": "^3.0.2",
-    "react-vis": "^1.7.7"
+    "react-vis": "^1.7.7",
+    "react-world-flags": "^0.0.3",
+    "validator": "^9.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-prebuild": "echo TODO This runs before Heroku installs dependencies.",
+    "heroku-postbuild": "echo TODO This runs Heroku installs dependencies."
   }
 }

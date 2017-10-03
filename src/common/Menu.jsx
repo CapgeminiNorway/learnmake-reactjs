@@ -10,6 +10,8 @@ import IconInfo from 'material-ui/svg-icons/action/info';
 import IconSettings from 'material-ui/svg-icons/action/settings';
 import PostIcon from 'material-ui/svg-icons/action/book';
 import CommentIcon from 'material-ui/svg-icons/communication/chat-bubble';
+import IconCode from 'material-ui/svg-icons/action/code';
+import IconLock from 'material-ui/svg-icons/action/lock';
 import Divider from 'material-ui/Divider';
 
 const styles = {
@@ -40,8 +42,16 @@ const Menu = ({ resources, onMenuTap, translate, logout }) => (
       />
 
       <MenuItem
-          key='configuration'
-          containerElement={<Link to={`/configuration`} />}
+          key='visexample'
+          containerElement={<Link to={`/visexample`} />}
+          primaryText={translate(`pos.vis.example`)}
+          leftIcon={<IconCode />}
+          onTouchTap={onMenuTap}
+      />
+
+      <MenuItem
+          key='config'
+          containerElement={<Link to={`/config`} />}
           primaryText={translate(`pos.configuration`)}
           leftIcon={<IconSettings />}
           onTouchTap={onMenuTap}

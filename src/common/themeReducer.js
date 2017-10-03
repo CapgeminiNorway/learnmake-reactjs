@@ -1,4 +1,4 @@
-import { CHANGE_THEME } from './common/customActions';
+import { CHANGE_THEME } from './customActions';
 
 export default (previousState = 'light', { type, payload }) => {
     if (type === CHANGE_THEME) {

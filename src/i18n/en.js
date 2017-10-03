@@ -8,6 +8,9 @@ export const messages = {
           light: 'Light',
           dark: 'Dark',
       },
+      vis: {
+        example: 'VIS example'
+      }
   },
   resources: {
       posts: {
