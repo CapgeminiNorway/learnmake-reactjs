@@ -1,5 +1,8 @@
-# learn-react-aor-vis
+# demo-using-reactjs
 Playground for ReactJS, admin-on-rest, react-vis!  
+
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).  
+It uses [React.js](https://facebook.github.io/react/), [admin-on-rest](https://marmelab.com/admin-on-rest/), [material.ui](http://www.material-ui.com/#/), [react-vis](https://uber.github.io/react-vis).     
 
 **Learning by Doing..!**  
 Dette prosjekt er et annet mulighet til å lære om rammeverker, plattformer og teknologier.  
@@ -16,7 +19,7 @@ Miljøer som er utviklers beste venner!
 - [mLab - MongoDB as a service](https://mlab.com/)  
 
 
-## Getting Started with learn-react-aor-vis  
+## Getting Started with demo-using-reactjs  
 
 Getting up and running is as easy as 1, 2, 3.  
 
@@ -25,7 +28,7 @@ Getting up and running is as easy as 1, 2, 3.
 2. Install your dependencies  
 
     ```
-    cd path/to/learn-react-aor-vis; yarn install
+    cd path/to/demo-using-reactjs; yarn install
     ```
 
 3. Start your app
@@ -34,5 +37,4 @@ Getting up and running is as easy as 1, 2, 3.
     yarn start
     ```
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).  
-It uses [React.js](https://facebook.github.io/react/), [admin-on-rest](https://marmelab.com/admin-on-rest/), [material.ui](http://www.material-ui.com/#/), [react-vis](https://uber.github.io/react-vis).     
+
