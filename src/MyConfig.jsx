@@ -15,6 +15,7 @@ export const myConfig = {
   },
   backend: {
     development: 'todo-soon ...localhost...',
-    production: 'todo-soon ...herokuapp.com'
+    production: 'todo-soon ...herokuapp.com',
+    placeholder: 'https://jsonplaceholder.typicode.com'
   }
 };

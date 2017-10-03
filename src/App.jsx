@@ -15,6 +15,7 @@ import translations from './i18n';
 import customRoutes from './customRoutes';
 import Menu from './Menu';
 import themeReducer from './themeReducer';
+import { myConfig } from './MyConfig';
 
 import createHistory from 'history/createBrowserHistory';
 const history = createHistory();
@@ -22,7 +23,7 @@ const history = createHistory();
 const App = () => (
     <Admin
       title={'Learning by Doing...'}
-      restClient={jsonServerRestClient('http://jsonplaceholder.typicode.com')}
+      restClient={jsonServerRestClient(myConfig.backend.placeholder)}
       locale="en" messages={translations}
       history={history}
       customRoutes={customRoutes}
