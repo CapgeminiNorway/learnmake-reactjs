@@ -2,7 +2,7 @@
 Playground for ReactJS, admin-on-rest, react-vis!  
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).  
-It uses [React.js](https://facebook.github.io/react/), [admin-on-rest](https://marmelab.com/admin-on-rest/), [material.ui](http://www.material-ui.com/#/), [react-vis](https://uber.github.io/react-vis).     
+And we are using [React.js](https://facebook.github.io/react/), [admin-on-rest](https://marmelab.com/admin-on-rest/), [material.ui](http://www.material-ui.com/#/), [react-vis](https://uber.github.io/react-vis), and few more open source libs.      
 
 **Learning by Doing..!**  
 Dette prosjekt er et annet mulighet til å lære om rammeverker, plattformer og teknologier.  
