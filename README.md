@@ -7,16 +7,11 @@ It uses [React.js](https://facebook.github.io/react/), [admin-on-rest](https://m
 **Learning by Doing..!**  
 Dette prosjekt er et annet mulighet til å lære om rammeverker, plattformer og teknologier.  
 
-- [ReactJS](https://reactjs.org/)   
-- An introductory Book about ReactJS [survivejs](https://survivejs.com/react/getting-started/introduction-to-react/)  
-- Open source Library using ReactJS and Material UI [admin-on-rest](https://marmelab.com/admin-on-rest/)  
+- [ReactJS >>](https://reactjs.org/)   
+- A nice book for learning ReactJS [survivejs >>](https://survivejs.com/react/getting-started/introduction-to-react/)  
+- An open source Library using ReactJS and Material UI [>> admin-on-rest](https://marmelab.com/admin-on-rest/)  
 - [Material UI](http://www.material-ui.com/)  
 - React visualization library [react-vis](https://uber.github.io/react-vis)  
-
-Miljøer som er utviklers beste venner!  
-- [GitHub](https://github.com/)  
-- [Heroku](https://www.heroku.com/)  
-- [mLab - MongoDB as a service](https://mlab.com/)  
 
 
 ## Getting Started with demo-using-reactjs  
