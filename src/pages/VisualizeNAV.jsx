@@ -214,23 +214,35 @@ export default class VisualizeNAV extends React.Component {
       <div>
         <div className="legend">
           <DiscreteColorLegend
-            //width={600} 
+            //width={600}
             orientation={'horizontal'}
-            items={series}/>
+            items={series}
+            onItemClick={(obj, number) => {
+              this.setState({'selectedSeries': obj.title});
+              console.log('legend.onClick -> ' + obj.title);
+            }}
+          />
         </div>
         <div className="chart no-select">
           <FlexibleWidthXYPlot
             animation
             //xDomain={lastDrawLocation && [lastDrawLocation.left, lastDrawLocation.right]}
-            width={800}
+            //width={900}
             height={400}
             >
 
             <HorizontalGridLines />
-            <YAxis title={yTitle} />
+
+            <YAxis hideTicks/>
+            <YAxis title={yTitle}
+              left={20}
+              tickFormat={v => v * 1.3}
+            />
+
             {/*<XAxis title={xTitle} />*/}
             {/* <XAxis bottom={0} hideLine title={xTitle} /> */}
             <XAxis title={xTitle}
+              tickValues={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
               tickFormat={v => `${months[v]?months[v]:''}`}
             />
 
@@ -238,6 +250,11 @@ export default class VisualizeNAV extends React.Component {
               <LineSeries
                 key={entry.title}
                 data={entry.data}
+                //strokeStyle={'dashed'}
+                style={
+                  (entry.title===this.state.selectedSeries)?
+                    {strokeWidth: 4}:{strokeWidth: 2}
+                  }
               />
             ))}
 
@@ -259,11 +276,11 @@ export default class VisualizeNAV extends React.Component {
           </XYPlot>
         </div> */}
 
-        {/* <div>
+        <div>
         <span>
           {JSON.stringify(this.state.current)}
         </span>
-      </div> */}
+      </div>
 
       </div>
     );
