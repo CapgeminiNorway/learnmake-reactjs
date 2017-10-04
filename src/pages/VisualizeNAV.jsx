@@ -31,6 +31,12 @@ const styles = {
       alignItems: 'center',
       justifyContent: 'center',
   },
+  left: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'left',
+      justifyContent: 'left',
+  },
   card: {
       //width: '90%',
       minHeight: 900,
@@ -212,14 +218,22 @@ export default class VisualizeNAV extends React.Component {
     return(
 
       <div>
-        <div className="legend">
+        <div style={styles.left}
+          className="legend">
           <DiscreteColorLegend
             //width={600}
             orientation={'horizontal'}
             items={series}
-            onItemClick={(obj, number) => {
+            /*onItemClick={(obj, number) => {
               this.setState({'selectedSeries': obj.title});
-              console.log('legend.onClick -> ' + obj.title);
+              //console.log('legend.onClick -> ' + obj.title);
+            }}*/
+            onItemMouseEnter={(item, index, event) => {
+              this.setState({'selectedSeries': item.title});
+              //console.log('legend.onItemMouseEnter -> ' + item.title);
+            }}
+            onItemMouseLeave={(item, index, event) => {
+              this.setState({'selectedSeries': ''});
             }}
           />
         </div>
@@ -253,7 +267,7 @@ export default class VisualizeNAV extends React.Component {
                 //strokeStyle={'dashed'}
                 style={
                   (entry.title===this.state.selectedSeries)?
-                    {strokeWidth: 4}:{strokeWidth: 2}
+                    {strokeWidth: 5}:{strokeWidth: 2}
                   }
               />
             ))}
