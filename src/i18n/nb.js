@@ -1,7 +1,7 @@
 export const messages = {
   pos: {
       search: 'Søk',
-      configuration: 'Konfigurasjon',
+      configuration: 'App Konfig',
       language: 'Språk',
       main: {
         title: 'Lære -> Lage -> Dele!'
@@ -12,13 +12,13 @@ export const messages = {
           dark: 'Mørk',
       },
       vis: {
-        example: 'eksempel - VIS',
+        example: 'f.eks - VIS',
         nav: 'NAV arbeidsmarkedet rapport'
       }
   },
   resources: {
       posts: {
-          name: 'Post |||| eksempel - Poster',
+          name: 'Post |||| f.eks - Poster',
           fields: {
               allow_comments: 'Allow comments?',
               average_note: 'Average note',
@@ -39,7 +39,7 @@ export const messages = {
           },
       },
       comments: {
-          name: 'Kommentar |||| eksempel - Komentarer',
+          name: 'Kommentar |||| f.eks - Komentarer',
           fields: {
               body: 'Body',
               created_at: 'Created at',

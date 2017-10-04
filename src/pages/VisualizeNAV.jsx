@@ -159,7 +159,6 @@ export default class VisualizeNAV extends React.Component {
       "Januar", "Februar", "Mars", "April", "Mai",
       "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"];
 
-
     /* // test & verify with only one year
     let graphData = [];
     let xTitle = "Month";
@@ -197,17 +196,17 @@ export default class VisualizeNAV extends React.Component {
           year = currentData[itemKey];
         }
       });
-      if (series.length<3) { // FIXME remove this check! temporarily we limit series for demo
+      //if (series.length<3) { // temporarily we limit series for demo
         series.push({
         title: year,
         disabled: false,
         data: graphData
       });
-    }
+    //}
 
     });
 
-    const xTitle = "Måned";
+    const xTitle = "";
     const yTitle = "";
 
     return(
@@ -215,7 +214,8 @@ export default class VisualizeNAV extends React.Component {
       <div>
         <div className="legend">
           <DiscreteColorLegend
-            width={180}
+            //width={600} 
+            orientation={'horizontal'}
             items={series}/>
         </div>
         <div className="chart no-select">
@@ -284,7 +284,9 @@ export default class VisualizeNAV extends React.Component {
             titleStyle={{fontSize: 'large'}}
             subtitleStyle={{fontSize: 'medium'}}
           />
-          <CardActions style={styles.cardText}>
+          <CardActions
+            style={styles.cardText}
+            >
             {/*<FlatButton label="todo-Action1" />*/}
             <div>
               {this.prepareMenuOptions()}

@@ -1,7 +1,7 @@
 export const messages = {
   pos: {
       search: 'Search',
-      configuration: 'Configuration',
+      configuration: 'App Config',
       language: 'Language',
       main: {
         title: 'Learn -> Make -> Share!'
@@ -12,13 +12,13 @@ export const messages = {
           dark: 'Dark',
       },
       vis: {
-        example: 'example - VIS',
+        example: 'e.g. - VIS',
         nav: 'NAV labor market report'
       }
   },
   resources: {
       posts: {
-          name: 'Post |||| example - Posts',
+          name: 'Post |||| e.g. - Posts',
           fields: {
               allow_comments: 'Allow comments?',
               average_note: 'Average note',
@@ -39,7 +39,7 @@ export const messages = {
           },
       },
       comments: {
-          name: 'Comment |||| example - Comments',
+          name: 'Comment |||| e.g. - Comments',
           fields: {
               body: 'Body',
               created_at: 'Created at',
