@@ -1,0 +1,306 @@
+import React, { Component, PropTypes } from 'react';
+
+import { Card, CardActions, CardText, CardHeader } from 'material-ui/Card';
+import { Container, Row, Col } from 'react-grid-system';
+
+import FlatButton from 'material-ui/FlatButton';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
+
+import './Vis.css';
+import {
+  XYPlot,
+  LineSeries, VerticalBarSeries, MarkSeries,
+  VerticalGridLines, HorizontalGridLines,
+  XAxis, YAxis,
+  FlexibleWidthXYPlot,
+  DiscreteColorLegend
+} from 'react-vis';
+import Highlight from './highlight';
+
+import sheets14 from './../datafiles/sheets1-4_NAV-om-arbeidsmarkedet_September2017.json';
+import sheets56 from './../datafiles/sheets5-6_NAV-om-arbeidsmarkedet_September2017.json';
+import sheets78 from './../datafiles/sheets7-8_NAV-om-arbeidsmarkedet_September2017.json';
+
+const isDev = (process.env.NODE_ENV !== 'production');
+const styles = {
+  main: {
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',
+      alignItems: 'center',
+      justifyContent: 'center',
+  },
+  card: {
+      width: '900',//'95%',
+      minHeight: 900,
+      margin: '0.1em',
+      display: 'inline-block',
+      verticalAlign: 'top',
+      textAlign: 'center',
+      alignItems: 'center',
+      justifyContent: 'center',
+  },
+  cardText: {
+    fontSize: 'medium'
+  },
+  cardItemText: {
+    fontSize: 'small'
+  }
+};
+
+export default class VisualizeNAV extends React.Component {
+  static propTypes = {
+
+  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      record: {},
+      current: {}
+    };
+
+    this.prepareMenuOptions = this.prepareMenuOptions.bind(this);
+    this.handleMenuSelection = this.handleMenuSelection.bind(this);
+    this.prepareGraph = this.prepareGraph.bind(this);
+  }
+  componentWillMount() {
+    // organise imported json-data and save into state
+    let { record, current } = this.state;
+
+    let items = [];
+    sheets14.map((item) => {
+      items.push({
+        name: item.name,
+        data: item.data
+      });
+    });
+    /* // FIXME uncomment this! temporarily using 'only sheets14' for demo
+    sheets56.map((item) => {
+      items.push({
+        name: item.name,
+        data: item.data
+      });
+    });
+    sheets78.map((item) => {
+      items.push({
+        name: item.name,
+        data: item.data
+      });
+    }); */
+    record['items'] = items;
+
+    // by default; load the first record to display
+    const which = 0;
+    current['name'] = record.items[which].name;
+    current['data'] = record.items[which].data;
+
+    this.setState({record, current});
+
+    /*if (isDev) {
+      console.log('componentWillMount');
+      //console.log('current -> ' + JSON.stringify(current));
+      console.log('state -> ' + JSON.stringify(this.state));
+    }*/
+  }
+
+  handleMenuSelection = (event, index, selectedValue) => {
+      //this.handleUserInput(value);
+      let { record, current } = this.state;
+
+      if (isDev) {
+        console.log('handleMenuSelection');
+        console.log('userInput.selectedValue -> ' + selectedValue);
+        //-console.log('current -> ' + JSON.stringify(current));
+        //console.log('record -> ' + JSON.stringify(record));
+      }
+
+      current['name'] = selectedValue;//record.items[selectedValue].name;
+      record.items.map((item) => {
+        if (selectedValue === item.name) {
+          current['name'] = item.name;
+          current['data'] = item.data;
+        }
+      });
+      this.setState({ current });
+
+      /*if (isDev) {
+        console.log('handleUserInput');
+        console.log('current -> ' + JSON.stringify(current));
+      }*/
+  }
+
+  prepareMenuOptions() {
+    const { record, current } = this.state;
+    const { translate } = this.context;
+
+    const menuItems = Object.keys(record.items).map((itemKey, index) =>
+    //const menuItems = record.names.map((itemKey) =>
+       <MenuItem
+         style={{fontSize: 'medium'}} focusState={'focused'} checked={true}
+         key={itemKey} value={record.items[itemKey].name}
+         primaryText={record.items[itemKey].name}
+         //primaryText={translate('pos.vis.nav.menu.options.'+itemKey)}
+       />
+    )
+
+    return (
+      <DropDownMenu value={current.name} onChange={this.handleMenuSelection}>
+        {menuItems}
+      </DropDownMenu>
+    );
+  }
+
+  prepareGraph() {
+    const { record, current } = this.state;
+    const { translate } = this.context;
+
+    const months = [
+      "Januar", "Februar", "Mars", "April", "Mai",
+      "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"];
+
+
+    /* // test & verify with only one year
+    let graphData = [];
+    let xTitle = "Month";
+    let yTitle = "";
+    let currentData = current.data[0];
+    Object.keys(currentData).map((itemKey, index) => {
+      if (itemKey !== 'Year') {
+        graphData.push({
+          x: months.indexOf(itemKey),
+          y: currentData[itemKey]
+        });
+      }
+    });
+    console.log('currentData -> ' + JSON.stringify(currentData));
+    console.log('graphData -> ' + JSON.stringify(graphData));
+    */
+
+    // go thru all years
+    let series = [];
+    current.data.map((currentData) => {
+      let graphData = [];
+      let xTitle = "Month";
+      let yTitle = "";
+      let year = '';
+
+      Object.keys(currentData).map((itemKey, index) => {
+
+        if (itemKey !== 'Year') {
+          graphData.push({
+            x: months.indexOf(itemKey),
+            y: currentData[itemKey]
+          });
+        }
+        else {
+          year = currentData[itemKey];
+        }
+      });
+      if (series.length<3) { // FIXME remove this check! temporarily we limit series for demo
+        series.push({
+        title: year,
+        disabled: false,
+        data: graphData
+      });
+    }
+
+    });
+
+    const xTitle = "Måned";
+    const yTitle = "";
+
+    return(
+
+      <div>
+        <div className="legend">
+          <DiscreteColorLegend
+            width={180}
+            items={series}/>
+        </div>
+        <div className="chart no-select">
+          <FlexibleWidthXYPlot
+            animation
+            //xDomain={lastDrawLocation && [lastDrawLocation.left, lastDrawLocation.right]}
+            height={300}>
+
+            <HorizontalGridLines />
+            <YAxis title={yTitle} />
+            <XAxis title={xTitle} />
+
+            {series.map(entry => (
+              <LineSeries
+                key={entry.title}
+                data={entry.data}
+              />
+            ))}
+
+            {/*<Highlight onBrushEnd={(area) => {
+              this.setState({
+                lastDrawLocation: area
+              });
+            }} />*/}
+
+          </FlexibleWidthXYPlot>
+        </div>
+        {/* <div>
+          <XYPlot width={800} height={400}>
+            <VerticalGridLines />
+            <HorizontalGridLines />
+            <XAxis title={xTitle}/>
+            <YAxis title={yTitle}/>
+            <LineSeries data={graphData} />
+          </XYPlot>
+        </div> */}
+
+        {/* <div>
+        <span>
+          {JSON.stringify(this.state.current)}
+        </span>
+      </div> */}
+
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div>
+
+        <Card key="one1"
+          style={styles.card}
+          >
+          <CardHeader
+            title="Visualize NAV data"
+            subtitle="Sesongjusterte hovedtall om arbeidsmarkedet"
+            actAsExpander={false}
+            showExpandableButton={false}
+            titleStyle={{fontSize: 'large'}}
+            subtitleStyle={{fontSize: 'medium'}}
+          />
+          <CardActions style={styles.cardText}>
+            {/*<FlatButton label="todo-Action1" />*/}
+            <div>
+              {this.prepareMenuOptions()}
+            </div>
+          </CardActions>
+          <CardText style={styles.cardText}>
+            <Container>
+              {/* <Row>
+                <Col xs={12} md={12}>
+                  todo: etc etc
+                </Col>
+              </Row> */}
+              <Row>
+                <Col xs={12} md={12}>
+                  {this.prepareGraph()}
+                </Col>
+              </Row>
+            </Container>
+          </CardText>
+        </Card>
+
+      </div>
+    )
+  }
+}

@@ -1,0 +1,2 @@
+This data has been exported from http://data.norge.no
+Then converted into JSON format to make use of it in this application.

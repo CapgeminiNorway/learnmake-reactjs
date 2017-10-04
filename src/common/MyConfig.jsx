@@ -17,5 +17,6 @@ export const myConfig = {
     placeholder: 'https://jsonplaceholder.typicode.com',
     development: 'todo-soon ...localhost...',
     production: 'todo-soon ...herokuapp.com'
-  }
+  },
+  github: 'https://github.com/zeusbaba/demo-using-reactjs'
 };

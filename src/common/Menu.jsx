@@ -27,18 +27,11 @@ const Menu = ({ resources, onMenuTap, translate, logout }) => (
     <div style={styles.main}>
 
       <MenuItem
-          key='posts'
-          containerElement={<Link to={`/posts`} />}
-          primaryText={translate(`resources.posts.name`, { smart_count: 2 })}
-          leftIcon={<PostIcon />}
-          onTouchTap={onMenuTap}
-      />
-      <MenuItem
-          key='comments'
-          containerElement={<Link to={`/comments`} />}
-          primaryText={translate(`resources.comments.name`, { smart_count: 2 })}
-          leftIcon={<CommentIcon />}
-          onTouchTap={onMenuTap}
+          key='visnav'
+          containerElement={<Link to={`/visnav`} />}
+          primaryText={translate(`pos.vis.nav`)}
+          leftIcon={<IconCode />}
+          //onTouchTap={onMenuTap}
       />
 
       <MenuItem
@@ -46,7 +39,23 @@ const Menu = ({ resources, onMenuTap, translate, logout }) => (
           containerElement={<Link to={`/visexample`} />}
           primaryText={translate(`pos.vis.example`)}
           leftIcon={<IconCode />}
-          onTouchTap={onMenuTap}
+          //onTouchTap={onMenuTap}
+      />
+
+      <Divider />
+      <MenuItem
+          key='posts'
+          containerElement={<Link to={`/posts`} />}
+          primaryText={translate(`resources.posts.name`, { smart_count: 2 })}
+          leftIcon={<PostIcon />}
+          //onTouchTap={onMenuTap}
+      />
+      <MenuItem
+          key='comments'
+          containerElement={<Link to={`/comments`} />}
+          primaryText={translate(`resources.comments.name`, { smart_count: 2 })}
+          leftIcon={<CommentIcon />}
+          //onTouchTap={onMenuTap}
       />
 
       <MenuItem
@@ -54,7 +63,7 @@ const Menu = ({ resources, onMenuTap, translate, logout }) => (
           containerElement={<Link to={`/config`} />}
           primaryText={translate(`pos.configuration`)}
           leftIcon={<IconSettings />}
-          onTouchTap={onMenuTap}
+          //onTouchTap={onMenuTap}
       />
 
         <Divider />
@@ -63,7 +72,7 @@ const Menu = ({ resources, onMenuTap, translate, logout }) => (
             containerElement={<Link to={`/tbd`} />}
             primaryText='TBD'
             leftIcon={<IconInfo />}
-            onTouchTap={onMenuTap}
+            //onTouchTap={onMenuTap}
         />
 
 

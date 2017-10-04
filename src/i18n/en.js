@@ -3,18 +3,22 @@ export const messages = {
       search: 'Search',
       configuration: 'Configuration',
       language: 'Language',
+      main: {
+        title: 'Learn -> Make -> Share!'
+      },
       theme: {
           name: 'Theme',
           light: 'Light',
           dark: 'Dark',
       },
       vis: {
-        example: 'VIS example'
+        example: 'example - VIS',
+        nav: 'NAV labor market report'
       }
   },
   resources: {
       posts: {
-          name: 'Post |||| Posts',
+          name: 'Post |||| example - Posts',
           fields: {
               allow_comments: 'Allow comments?',
               average_note: 'Average note',
@@ -35,7 +39,7 @@ export const messages = {
           },
       },
       comments: {
-          name: 'Comment |||| Comments',
+          name: 'Comment |||| example - Comments',
           fields: {
               body: 'Body',
               created_at: 'Created at',

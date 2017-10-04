@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import { Card, CardActions, CardText } from 'material-ui/Card';
+import { Container, Row, Col } from 'react-grid-system';
+
 //import '../node_modules/react-vis/dist/style.css';
 import './Vis.css';
 import {
@@ -23,21 +26,33 @@ class VisExample extends Component {
       {x: 8, y: 2},
       {x: 9, y: 0}
     ];
+    const xTitle = "x title";
+    const yTitle = "y title";
     return (
-      <div className="App">
-        <XYPlot width={800} height={400}>
-          <VerticalGridLines />
-          <HorizontalGridLines />
-          <XAxis />
-          <YAxis />
-          <LineSeries data={data} />
-        </XYPlot>
-        <XYPlot width={800} height={400}>
-          <VerticalBarSeries data={data} />
-        </XYPlot>
-        <XYPlot width={800} height={400}>
-          <MarkSeries data={data} />
-        </XYPlot>
+      <div>
+        <Card key="one1">
+
+          <CardText>
+            <XYPlot width={800} height={400}>
+              <VerticalGridLines />
+              <HorizontalGridLines />
+              <XAxis title={xTitle}/>
+              <YAxis title={yTitle}/>
+              <LineSeries data={data} />
+            </XYPlot>
+          </CardText>
+          <CardText>
+            <XYPlot width={800} height={400}>
+              <VerticalBarSeries data={data} />
+            </XYPlot>
+          </CardText>
+          <CardText>
+            <XYPlot width={800} height={400}>
+              <MarkSeries data={data} />
+            </XYPlot>
+          </CardText>
+
+        </Card>
       </div>
     );
   }
