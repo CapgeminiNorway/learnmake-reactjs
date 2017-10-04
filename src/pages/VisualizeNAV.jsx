@@ -32,7 +32,7 @@ const styles = {
       justifyContent: 'center',
   },
   card: {
-      width: '900',//'95%',
+      //width: '90%',
       minHeight: 900,
       margin: '0.1em',
       display: 'inline-block',
@@ -222,11 +222,17 @@ export default class VisualizeNAV extends React.Component {
           <FlexibleWidthXYPlot
             animation
             //xDomain={lastDrawLocation && [lastDrawLocation.left, lastDrawLocation.right]}
-            height={300}>
+            width={800}
+            height={400}
+            >
 
             <HorizontalGridLines />
             <YAxis title={yTitle} />
-            <XAxis title={xTitle} />
+            {/*<XAxis title={xTitle} />*/}
+            {/* <XAxis bottom={0} hideLine title={xTitle} /> */}
+            <XAxis title={xTitle}
+              tickFormat={v => `${months[v]?months[v]:''}`}
+            />
 
             {series.map(entry => (
               <LineSeries
@@ -286,11 +292,6 @@ export default class VisualizeNAV extends React.Component {
           </CardActions>
           <CardText style={styles.cardText}>
             <Container>
-              {/* <Row>
-                <Col xs={12} md={12}>
-                  todo: etc etc
-                </Col>
-              </Row> */}
               <Row>
                 <Col xs={12} md={12}>
                   {this.prepareGraph()}
