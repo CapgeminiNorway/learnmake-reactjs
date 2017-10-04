@@ -28,6 +28,8 @@ import Menu from './common/Menu';
 import themeReducer from './common/themeReducer';
 import { myConfig } from './common/MyConfig';
 
+import VisualizeNAV from './pages/VisualizeNAV';
+
 import createHistory from 'history/createBrowserHistory';
 const history = createHistory();
 
@@ -62,6 +64,7 @@ class App extends Component {
           customRoutes={customRoutes}
           customReducers={{ theme: themeReducer }}
           menu={Menu}
+          dashboard={VisualizeNAV}
           >
 
         <Resource name="posts"
