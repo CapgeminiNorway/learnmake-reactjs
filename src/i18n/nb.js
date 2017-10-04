@@ -13,7 +13,7 @@ export const messages = {
       },
       vis: {
         example: 'f.eks - VIS',
-        nav: 'NAV arbeidsmarkedet rapport'
+        nav: 'Arbeidsmarkedet'
       }
   },
   resources: {

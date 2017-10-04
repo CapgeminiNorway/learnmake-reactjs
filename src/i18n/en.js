@@ -13,7 +13,7 @@ export const messages = {
       },
       vis: {
         example: 'e.g. - VIS',
-        nav: 'NAV labor market report'
+        nav: 'Labor market'
       }
   },
   resources: {

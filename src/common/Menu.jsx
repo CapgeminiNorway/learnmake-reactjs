@@ -24,7 +24,9 @@ const styles = {
 };
 
 const Menu = ({ resources, onMenuTap, translate, logout }) => (
-    <div style={styles.main}>
+    <div
+      //style={styles.main}
+      >
 
       <MenuItem
           key='visnav'

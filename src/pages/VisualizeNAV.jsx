@@ -241,7 +241,7 @@ export default class VisualizeNAV extends React.Component {
           <FlexibleWidthXYPlot
             animation
             //xDomain={lastDrawLocation && [lastDrawLocation.left, lastDrawLocation.right]}
-            //width={900}
+            width={800}
             height={400}
             >
 
@@ -291,9 +291,11 @@ export default class VisualizeNAV extends React.Component {
         </div> */}
 
         <div>
-        <span>
+        {isDev && (
+          <span>
           {JSON.stringify(this.state.current)}
         </span>
+        )}
       </div>
 
       </div>

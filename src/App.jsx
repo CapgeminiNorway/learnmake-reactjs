@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 
 import {
@@ -22,6 +23,7 @@ import {
   CommentList, CommentEdit, CommentCreate, CommentShow
 } from './pages/PlaceholderComments';
 
+import Layout from './Layout';
 import translations from './i18n';
 import customRoutes from './common/customRoutes';
 import Menu from './common/Menu';
@@ -35,10 +37,41 @@ import BrowserDetection from 'react-browser-detection';
 import createHistory from 'history/createBrowserHistory';
 const history = createHistory();
 
+/* // TODO create custom theme
+import {
+  cyan500, cyan700, orangeA500, orangeA700,
+  pinkA200,
+  grey100, grey300, grey400, grey500,
+  white, darkBlack, fullBlack,
+} from 'material-ui/styles/colors';
+import { fade } from 'material-ui/utils/colorManipulator';
+import spacing from 'material-ui/styles/spacing';
+const myTheme = {
+    spacing: spacing,
+    fontFamily: 'Roboto, sans-serif',
+    palette: {
+      primary1Color: orangeA500, //cyan500,
+      primary2Color: orangeA700, //cyan700,
+      primary3Color: grey400,
+      accent1Color: pinkA200,
+      accent2Color: grey100,
+      accent3Color: grey500,
+      textColor: darkBlack,
+      alternateTextColor: white,
+      canvasColor: white,
+      borderColor: grey300,
+      disabledColor: fade(darkBlack, 0.3),
+      pickerHeaderColor: cyan500,
+      clockCircleColor: fade(darkBlack, 0.07),
+      shadowColor: fullBlack,
+    },
+};*/
+
+
 const browserHandler = {
   ie: (browser) => (
     <div>
-      Unfortunately, you are using <em>{browser}</em> which we dont support... <br/>
+      Unfortunately you are still using <em>{browser}</em> which we dont support... <br/>
       Please use <em>a decent browser</em> like Chrome, Firefox, Safari.
     </div>
   ),
@@ -58,8 +91,10 @@ const browserHandler = {
         // TODO title={translate('pos.main.title')}
         restClient={jsonServerRestClient(myConfig.backend.placeholder)}
         theme={getMuiTheme(lightBaseTheme)}
+        //theme={getMuiTheme(myTheme)}
         locale="nb" messages={translations}
         history={history}
+        appLayout={Layout}
         customRoutes={customRoutes}
         customReducers={{ theme: themeReducer }}
         menu={Menu}
