@@ -97,7 +97,7 @@ class GraphQLExample extends Component {
   createClient() {
     const networkInterface = createNetworkInterface({
       //uri: 'https://api.githunt.com/graphql',
-      uri: '/graphql',//uri: '/githunt_gql',
+      uri: (isDev===true)?'/graphql':'https://api.githunt.com/graphql',
       //uri: 'http://localhost:9002/graphql',
       /*opts: {
         mode: 'no-cors',
