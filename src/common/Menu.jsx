@@ -14,6 +14,7 @@ import IconCode from 'material-ui/svg-icons/action/code';
 import IconLock from 'material-ui/svg-icons/action/lock';
 import Divider from 'material-ui/Divider';
 
+const isDev = (process.env.NODE_ENV !== 'production');
 const styles = {
     main: {
         display: 'flex',
@@ -43,6 +44,18 @@ const Menu = ({ resources, onMenuTap, translate, logout }) => (
           leftIcon={<IconCode />}
           //onTouchTap={onMenuTap}
       />
+
+      <Divider />
+
+
+          <MenuItem
+            key='gqlexample'
+            containerElement={<Link to={`/gqlexample`} />}
+            primaryText={translate(`pos.gql.example`)}
+            leftIcon={<IconCode />}
+            //onTouchTap={onMenuTap}
+        />
+      
 
       <Divider />
       <MenuItem

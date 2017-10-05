@@ -14,6 +14,9 @@ export const messages = {
       vis: {
         example: 'e.g. - VIS',
         nav: 'Labor market'
+      },
+      gql: {
+        example: 'e.g. - GraphQL'
       }
   },
   resources: {
