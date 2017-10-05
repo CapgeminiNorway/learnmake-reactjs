@@ -251,6 +251,7 @@ export default class VisualizeNAV extends React.Component {
             <YAxis title={yTitle}
               left={20}
               tickFormat={v => v * 1.3}
+              style={{text: {fontSize:'xsmall', fontWeight: 200}}}
             />
 
             {/*<XAxis title={xTitle} />*/}
@@ -258,6 +259,7 @@ export default class VisualizeNAV extends React.Component {
             <XAxis title={xTitle}
               tickValues={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
               tickFormat={v => `${months[v]?months[v]:''}`}
+              style={{text: {fontSize:'xsmall', fontWeight: 200}}}
             />
 
             {series.map(entry => (
@@ -291,7 +293,7 @@ export default class VisualizeNAV extends React.Component {
         </div> */}
 
         <div>
-        {isDev && (
+        {(isDev===true) && (
           <span>
           {JSON.stringify(this.state.current)}
         </span>
