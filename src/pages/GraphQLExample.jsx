@@ -68,7 +68,7 @@ function Feed({ data }) {
     <Card>
       <CardText>
         <List style={styles.list}>
-          { (data.feed) && data.feed.map((item) => {
+          { (data.feed) && data.feed.map((item, index) => {
               const badge = item.repository.stargazers_count && {
                 value: `☆ ${item.repository.stargazers_count}`,
                 badgeContainerStyle: { right: 10, backgroundColor: '#56579B' },
@@ -76,6 +76,7 @@ function Feed({ data }) {
               };
 
               return <ListItem
+                key={index}
                 primaryText={`${item.repository.owner.login}/${item.repository.name}`}
                 secondaryText={`Posted by ${item.postedBy.login}`}
                 //-leftIcon={badge}
@@ -92,7 +93,7 @@ class GraphQLExample extends Component {
 
   createClient() {
     const networkInterface = createNetworkInterface({
-      uri: 'http://api.githunt.com/graphql',
+      uri: 'https://api.githunt.com/graphql',
       //uri: '/graphql',//uri: '/githunt_gql',
       //uri: 'http://localhost:9002/graphql',
       /*opts: {
