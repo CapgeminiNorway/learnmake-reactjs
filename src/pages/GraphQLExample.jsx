@@ -9,6 +9,7 @@ import {List, ListItem} from 'material-ui/List';
 import { Card, CardActions, CardText } from 'material-ui/Card';
 import { Container, Row, Col } from 'react-grid-system';
 
+const isDev = (process.env.NODE_ENV !== 'production');
 const styles = {
   title: {
     fontSize: 24,
@@ -62,7 +63,9 @@ function Feed({ data }) {
   if (data.error) {
     return <span>Error! {data.error.message}</span>;
   }
-  console.log('Feed.data -> ' + JSON.stringify(data));
+  if (isDev) {
+    console.log('Feed.data -> ' + JSON.stringify(data));
+  }
 
   return (
     <Card>
