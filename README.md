@@ -5,12 +5,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 And we are using [React.js](https://facebook.github.io/react/), [admin-on-rest](https://marmelab.com/admin-on-rest/), [material.ui](http://www.material-ui.com/#/), [react-vis](https://uber.github.io/react-vis), and few more open source libs.      
 
 **Learning by Doing..!**  
-Dette prosjekt er et annet mulighet til å lære om rammeverker, plattformer og teknologier.  
+This project's goal is to present functional demo by using emerging frameworks. Show, don't tell! :-)  
 
-- [ReactJS >>](https://reactjs.org/)   
-- A nice book for learning ReactJS [survivejs >>](https://survivejs.com/react/getting-started/introduction-to-react/)  
-- An open source Library using ReactJS and Material UI [>> admin-on-rest](https://marmelab.com/admin-on-rest/)  
-- [Material UI](http://www.material-ui.com/)  
+- The shiny glory [React.js >>](https://reactjs.org/)   
+- A nice book for learning ReactJS [>> survivejs](https://survivejs.com/react/getting-started/introduction-to-react/)  
+- Very useful open source library using React.js and Material-ui [>> admin-on-rest](https://marmelab.com/admin-on-rest/)  
+- A set of React components that implement Google's Material Design [>> Material UI](http://www.material-ui.com/)  
 - React visualization library [react-vis](https://uber.github.io/react-vis)  
 
 ## Online Demo  
