@@ -1,5 +1,5 @@
 # demo-using-reactjs
-Playground for ReactJS, admin-on-rest, react-vis!  
+Demo Playground using React.js  
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).  
 And we are using [React.js](https://facebook.github.io/react/), [admin-on-rest](https://marmelab.com/admin-on-rest/), [material.ui](http://www.material-ui.com/#/), [react-vis](https://uber.github.io/react-vis), and few more open source libs.      
