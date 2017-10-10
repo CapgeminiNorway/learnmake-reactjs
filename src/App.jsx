@@ -12,7 +12,7 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import GithubCorner from 'react-github-corner';
+import GitHubForkRibbon from 'react-github-fork-ribbon';
 
 import PostIcon from 'material-ui/svg-icons/action/book';
 import CommentIcon from 'material-ui/svg-icons/communication/chat-bubble';
@@ -102,14 +102,15 @@ function ShowMainApp(props) {
     </div>
 
     <div>
-      <GithubCorner
+      <GitHubForkRibbon
         href={myConfig.github}
-        bannerColor="#70B7FD"
-        octoColor="#fff"
-        width={128}
-        height={128}
-        direction="right"
-      />
+        target="_blank"
+        position="left-bottom"
+        //position="right"
+        color="black"
+        >
+        Source on GitHub!
+      </GitHubForkRibbon>
     </div>
 
     </div>

@@ -1,6 +1,6 @@
 {
   "name": "demo-using-reactjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://cat-reactjs.herokuapp.com",
   "license": "MIT",
   "repository": {
@@ -24,7 +24,7 @@
     "react-browser-detection": "^1.0.3",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "~15.5.4",
-    "react-github-corner": "^1.0.0",
+    "react-github-fork-ribbon": "^0.5.1",
     "react-grid-system": "^2.9.6",
     "react-helmet": "^5.2.0",
     "react-scripts": "1.0.14",
