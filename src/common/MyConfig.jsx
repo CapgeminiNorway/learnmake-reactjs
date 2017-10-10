@@ -1,3 +1,6 @@
+
+export const isDev = (process.env.NODE_ENV !== 'production')? true:false;
+
 export const myConfig = {
   authentication: {
     path: '/authentication',
@@ -15,8 +18,8 @@ export const myConfig = {
   },
   backend: {
     placeholder: 'https://jsonplaceholder.typicode.com',
-    development: 'todo-soon ...localhost...',
-    production: 'todo-soon ...herokuapp.com'
+    development: 'todo: api...localhost...',
+    production: 'todo: api...herokuapp.com'
   },
   github: 'https://github.com/zeusbaba/demo-using-reactjs'
 };

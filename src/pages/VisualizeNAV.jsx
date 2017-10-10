@@ -22,7 +22,7 @@ import sheets14 from './../datafiles/sheets1-4_NAV-om-arbeidsmarkedet_September2
 import sheets56 from './../datafiles/sheets5-6_NAV-om-arbeidsmarkedet_September2017.json';
 import sheets78 from './../datafiles/sheets7-8_NAV-om-arbeidsmarkedet_September2017.json';
 
-const isDev = (process.env.NODE_ENV !== 'production');
+import {isDev} from './../common/MyConfig';
 const styles = {
   main: {
       display: 'flex',

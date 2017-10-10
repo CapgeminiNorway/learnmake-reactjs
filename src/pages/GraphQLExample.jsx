@@ -9,7 +9,7 @@ import {List, ListItem} from 'material-ui/List';
 import { Card, CardActions, CardText } from 'material-ui/Card';
 import { Container, Row, Col } from 'react-grid-system';
 
-const isDev = (process.env.NODE_ENV !== 'production');
+import {isDev} from './../common/MyConfig';
 const styles = {
   title: {
     fontSize: 24,
