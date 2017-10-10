@@ -1,11 +1,12 @@
 # demo-using-reactjs
 Demo Playground using React.js  
 
+The main goal is to present functional demo by using emerging frameworks. *Learn -> Make -> Share!*      
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).  
 And we are using [React.js](https://facebook.github.io/react/), [admin-on-rest](https://marmelab.com/admin-on-rest/), [material.ui](http://www.material-ui.com/#/), [react-vis](https://uber.github.io/react-vis), and few more open source libs.      
 
 **Learning by Doing..!**  
-This project's goal is to present functional demo by using emerging frameworks. Show, don't tell! :-)  
+Here comes some useful links...   
 
 - The shiny glory [React.js >>](https://reactjs.org/)   
 - A nice book for learning ReactJS [>> survivejs](https://survivejs.com/react/getting-started/introduction-to-react/)  
