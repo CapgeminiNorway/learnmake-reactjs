@@ -26,6 +26,7 @@
     "react-dom": "~15.5.4",
     "react-github-corner": "^1.0.0",
     "react-grid-system": "^2.9.6",
+    "react-helmet": "^5.2.0",
     "react-scripts": "1.0.14",
     "react-tap-event-plugin": "^3.0.2",
     "react-vis": "^1.7.7",

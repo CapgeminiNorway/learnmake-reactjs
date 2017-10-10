@@ -30,7 +30,7 @@ import Menu from './common/Menu';
 import themeReducer from './common/themeReducer';
 import { myConfig } from './common/MyConfig';
 
-import VisualizeNAV from './pages/VisualizeNAV';
+import Dashboard from './common/Dashboard';
 
 import BrowserDetection from 'react-browser-detection';
 
@@ -72,15 +72,7 @@ function ShowMainApp(props) {
 
   return (
     <div>
-      <GithubCorner
-        href={myConfig.github}
-        bannerColor="#70B7FD"
-        octoColor="#fff"
-        width={128}
-        height={128}
-        direction="right"
-      />
-
+      <div>
       <Admin
         title={'Learn -> Make -> Share!'}
         // TODO title={translate('pos.main.title')}
@@ -93,7 +85,7 @@ function ShowMainApp(props) {
         customRoutes={customRoutes}
         customReducers={{ theme: themeReducer }}
         menu={Menu}
-        dashboard={VisualizeNAV}
+        dashboard={Dashboard}
         >
 
       <Resource name="posts"
@@ -107,6 +99,18 @@ function ShowMainApp(props) {
       <Resource name="tags" />
 
       </Admin>
+    </div>
+
+    <div>
+      <GithubCorner
+        href={myConfig.github}
+        bannerColor="#70B7FD"
+        octoColor="#fff"
+        width={128}
+        height={128}
+        direction="right"
+      />
+    </div>
 
     </div>
   );
@@ -125,14 +129,8 @@ const browserHandler = {
   default: () => <ShowMainApp />
 }
 
-//const App = () => (
 class App extends Component {
-
-  constructor(props) {
-    super(props);
-  }
   render() {
-    // FIXME const { translate } = this.context;
     return (
       <BrowserDetection>
         {browserHandler}
@@ -140,9 +138,4 @@ class App extends Component {
     );
   }
 }
-
-/*App.contextTypes = {
-    translate: PropTypes.func,
-};*/
-
 export default App;
