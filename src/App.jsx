@@ -68,14 +68,9 @@ const myTheme = {
 };*/
 
 
-const browserHandler = {
-  ie: (browser) => (
-    <div>
-      Unfortunately you are still using <em>{browser}</em> which we dont support... <br/>
-      Please use <em>a decent browser</em> like Chrome, Firefox, Safari.
-    </div>
-  ),
-  default: () => (
+function ShowMainApp(props) {
+
+  return (
     <div>
       <GithubCorner
         href={myConfig.github}
@@ -114,8 +109,21 @@ const browserHandler = {
       </Admin>
 
     </div>
-  ),
+  );
 };
+
+function BadBrowser(props) {
+  return (
+    <div>
+      Unfortunately you are still using <em>IE?!</em> which we dont support... <br/>
+      Please use <em>a decent browser</em> like Chrome, Firefox, Safari.
+    </div>
+  );
+}
+const browserHandler = {
+  ie: (browser) => <BadBrowser />,
+  default: () => <ShowMainApp />
+}
 
 //const App = () => (
 class App extends Component {
