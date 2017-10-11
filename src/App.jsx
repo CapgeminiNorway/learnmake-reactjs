@@ -105,8 +105,8 @@ function ShowMainApp(props) {
       <GitHubForkRibbon
         href={myConfig.github}
         target="_blank"
-        position="left-bottom"
-        //position="right"
+        //position="left-bottom"
+        position="right"
         color="black"
         >
         Source on GitHub!
