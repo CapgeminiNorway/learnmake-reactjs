@@ -1,5 +1,5 @@
-
-export const isDev = (process.env.NODE_ENV !== 'production')? true:false;
+// eslint-disable-next-line
+export const isDev = process.env.NODE_ENV !== 'production' ? true : false;
 
 export const myConfig = {
   authentication: {
@@ -13,13 +13,13 @@ export const myConfig = {
       authenticate: { strategy: 'local' },
     },
     restClientOptions: {
-      id: '_id'
-    }
+      id: '_id',
+    },
   },
   backend: {
     placeholder: 'https://jsonplaceholder.typicode.com',
     development: 'todo: api...localhost...',
-    production: 'todo: api...herokuapp.com'
+    production: 'todo: api...herokuapp.com',
   },
-  github: 'https://github.com/zeusbaba/demo-using-reactjs'
+  github: 'https://github.com/zeusbaba/demo-using-reactjs',
 };

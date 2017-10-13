@@ -1,9 +1,10 @@
 # Ignore all dotfiles...
 .*
-# except for 
+# except for
 !.gitignore
 !.editorconfig
 !.eslintrc.json
+!.eslintrc.js
 !.npmignore
 
 # Logs

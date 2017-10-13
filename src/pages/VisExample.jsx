@@ -1,43 +1,45 @@
 import React, { Component } from 'react';
 
-import { Card, CardActions, CardText } from 'material-ui/Card';
-import { Container, Row, Col } from 'react-grid-system';
+import { Card, CardText } from 'material-ui/Card';
 
 //import '../node_modules/react-vis/dist/style.css';
 import './Vis.css';
 import {
   XYPlot,
-  LineSeries, VerticalBarSeries, MarkSeries,
-  VerticalGridLines, HorizontalGridLines,
-  XAxis, YAxis
+  LineSeries,
+  VerticalBarSeries,
+  MarkSeries,
+  VerticalGridLines,
+  HorizontalGridLines,
+  XAxis,
+  YAxis,
 } from 'react-vis';
 
 class VisExample extends Component {
   render() {
     const data = [
-      {x: 0, y: 8},
-      {x: 1, y: 5},
-      {x: 2, y: 4},
-      {x: 3, y: 9},
-      {x: 4, y: 1},
-      {x: 5, y: 7},
-      {x: 6, y: 6},
-      {x: 7, y: 3},
-      {x: 8, y: 2},
-      {x: 9, y: 0}
+      { x: 0, y: 8 },
+      { x: 1, y: 5 },
+      { x: 2, y: 4 },
+      { x: 3, y: 9 },
+      { x: 4, y: 1 },
+      { x: 5, y: 7 },
+      { x: 6, y: 6 },
+      { x: 7, y: 3 },
+      { x: 8, y: 2 },
+      { x: 9, y: 0 },
     ];
-    const xTitle = "x title";
-    const yTitle = "y title";
+    const xTitle = 'x title';
+    const yTitle = 'y title';
     return (
       <div>
         <Card key="one1">
-
           <CardText>
             <XYPlot width={800} height={400}>
               <VerticalGridLines />
               <HorizontalGridLines />
-              <XAxis title={xTitle}/>
-              <YAxis title={yTitle}/>
+              <XAxis title={xTitle} />
+              <YAxis title={yTitle} />
               <LineSeries data={data} />
             </XYPlot>
           </CardText>
@@ -51,7 +53,6 @@ class VisExample extends Component {
               <MarkSeries data={data} />
             </XYPlot>
           </CardText>
-
         </Card>
       </div>
     );

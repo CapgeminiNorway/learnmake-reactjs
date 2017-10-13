@@ -8,13 +8,10 @@ import registerServiceWorker from './registerServiceWorker';
 // @link https://github.com/callemall/material-ui/issues/4670#issuecomment-235031917
 import injectTapEventPlugin from 'react-tap-event-plugin';
 try {
-    injectTapEventPlugin();
+  injectTapEventPlugin();
 } catch (e) {
-    // do nothing
+  // do nothing
 }
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

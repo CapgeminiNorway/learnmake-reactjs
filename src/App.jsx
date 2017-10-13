@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './App.css';
 
 import {
-  Admin, Resource, //Delete,
+  Admin,
+  Resource, //Delete,
   jsonServerRestClient,
-  translate
+  //translate,
 } from 'admin-on-rest';
 
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+//import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
@@ -16,12 +16,8 @@ import GitHubForkRibbon from 'react-github-fork-ribbon';
 
 import PostIcon from 'material-ui/svg-icons/action/book';
 import CommentIcon from 'material-ui/svg-icons/communication/chat-bubble';
-import {
-  PostList, PostCreate, PostEdit, PostShow
-} from './pages/PlaceholderPosts';
-import {
-  CommentList, CommentEdit, CommentCreate, CommentShow
-} from './pages/PlaceholderComments';
+import { PostList, PostShow } from './pages/PlaceholderPosts';
+import { CommentList, CommentShow } from './pages/PlaceholderComments';
 
 import Layout from './Layout';
 import translations from './i18n';
@@ -67,76 +63,76 @@ const myTheme = {
     },
 };*/
 
-
-function ShowMainApp(props) {
-
+function ShowMainApp(props) {// eslint-disable-line
   return (
     <div>
       <div>
-      <Admin
-        title={'Learn -> Make -> Share!'}
-        // TODO title={translate('pos.main.title')}
-        restClient={jsonServerRestClient(myConfig.backend.placeholder)}
-        theme={getMuiTheme(lightBaseTheme)}
-        //theme={getMuiTheme(myTheme)}
-        locale="nb" messages={translations}
-        history={history}
-        appLayout={Layout}
-        customRoutes={customRoutes}
-        customReducers={{ theme: themeReducer }}
-        menu={Menu}
-        dashboard={Dashboard}
+        <Admin
+          title={'Learn -> Make -> Share!'}
+          // TODO title={translate('pos.main.title')}
+          restClient={jsonServerRestClient(myConfig.backend.placeholder)}
+          theme={getMuiTheme(lightBaseTheme)}
+          //theme={getMuiTheme(myTheme)}
+          locale="nb"
+          messages={translations}
+          history={history}
+          appLayout={Layout}
+          customRoutes={customRoutes}
+          customReducers={{ theme: themeReducer }}
+          menu={Menu}
+          dashboard={Dashboard}
         >
+          <Resource
+            name="posts"
+            list={PostList}
+            show={PostShow}
+            //create={PostCreate} edit={PostEdit}  remove={Delete}
+            icon={PostIcon}
+          />
+          <Resource
+            name="comments"
+            list={CommentList}
+            show={CommentShow}
+            //create={CommentCreate}  edit={CommentEdit} remove={Delete}
+            icon={CommentIcon}
+          />
+          <Resource name="tags" />
+        </Admin>
+      </div>
 
-      <Resource name="posts"
-        list={PostList} show={PostShow}
-        //create={PostCreate} edit={PostEdit}  remove={Delete}
-        icon={PostIcon} />
-      <Resource name="comments"
-        list={CommentList} show={CommentShow}
-        //create={CommentCreate}  edit={CommentEdit} remove={Delete}
-        icon={CommentIcon} />
-      <Resource name="tags" />
-
-      </Admin>
-    </div>
-
-    <div>
-      <GitHubForkRibbon
-        href={myConfig.github}
-        target="_blank"
-        //position="left-bottom"
-        position="right"
-        color="black"
+      <div>
+        <GitHubForkRibbon
+          href={myConfig.github}
+          target="_blank"
+          //position="left-bottom"
+          position="right"
+          color="black"
         >
-        Source on GitHub!
-      </GitHubForkRibbon>
-    </div>
-
+          Source on GitHub!
+        </GitHubForkRibbon>
+      </div>
     </div>
   );
-};
+}
 
+/* eslint-disable */
 function BadBrowser(props) {
   return (
     <div>
-      Unfortunately you are still using <em>IE?!</em> which we dont support... <br/>
+      Unfortunately you are still using <em>{props.browser}?!</em> which we dont
+      support... <br />
       Please use <em>a decent browser</em> like Chrome, Firefox, Safari.
     </div>
   );
 }
 const browserHandler = {
-  ie: (browser) => <BadBrowser />,
-  default: () => <ShowMainApp />
-}
+  ie: browser => <BadBrowser browser={browser} />,
+  default: () => <ShowMainApp />,
+};
 
 class App extends Component {
   render() {
-    return (
-      <BrowserDetection>
-        {browserHandler}
-      </BrowserDetection>
-    );
+    return <BrowserDetection>{browserHandler}</BrowserDetection>;
   }
 }
 export default App;

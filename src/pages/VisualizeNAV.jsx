@@ -1,84 +1,86 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import { Card, CardActions, CardText, CardHeader } from 'material-ui/Card';
 import { Container, Row, Col } from 'react-grid-system';
 
-import FlatButton from 'material-ui/FlatButton';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
 import './Vis.css';
 import {
-  XYPlot,
-  LineSeries, VerticalBarSeries, MarkSeries,
-  VerticalGridLines, HorizontalGridLines,
-  XAxis, YAxis,
+  LineSeries,
+  //VerticalBarSeries,
+  //MarkSeries,
+  //VerticalGridLines,
+  HorizontalGridLines,
+  XAxis,
+  YAxis,
   FlexibleWidthXYPlot,
-  DiscreteColorLegend
+  DiscreteColorLegend,
 } from 'react-vis';
-import Highlight from './highlight';
+//import Highlight from './highlight';
 
 import sheets14 from './../datafiles/sheets1-4_NAV-om-arbeidsmarkedet_September2017.json';
-import sheets56 from './../datafiles/sheets5-6_NAV-om-arbeidsmarkedet_September2017.json';
-import sheets78 from './../datafiles/sheets7-8_NAV-om-arbeidsmarkedet_September2017.json';
+//TODO import sheets56 from './../datafiles/sheets5-6_NAV-om-arbeidsmarkedet_September2017.json';
+//TODO import sheets78 from './../datafiles/sheets7-8_NAV-om-arbeidsmarkedet_September2017.json';
 
-import {isDev} from './../common/MyConfig';
+import { isDev } from './../common/MyConfig';
 const styles = {
   main: {
-      display: 'flex',
-      flexDirection: 'column',
-      minHeight: '100vh',
-      alignItems: 'center',
-      justifyContent: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   left: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'left',
-      justifyContent: 'left',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'left',
+    justifyContent: 'left',
   },
   card: {
-      //width: '90%',
-      minHeight: 900,
-      margin: '0.1em',
-      display: 'inline-block',
-      verticalAlign: 'top',
-      textAlign: 'center',
-      alignItems: 'center',
-      justifyContent: 'center',
+    //width: '90%',
+    minHeight: 900,
+    margin: '0.1em',
+    display: 'inline-block',
+    verticalAlign: 'top',
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   cardText: {
-    fontSize: 'medium'
+    fontSize: 'medium',
   },
   cardItemText: {
-    fontSize: 'small'
-  }
+    fontSize: 'small',
+  },
 };
 
-export default class VisualizeNAV extends React.Component {
-  static propTypes = {
-
-  };
+export default class VisualizeNAV extends Component {
+  static propTypes = {};
   constructor(props) {
     super(props);
     this.state = {
       record: {},
-      current: {}
+      current: {},
     };
 
     this.prepareMenuOptions = this.prepareMenuOptions.bind(this);
     this.handleMenuSelection = this.handleMenuSelection.bind(this);
     this.prepareGraph = this.prepareGraph.bind(this);
   }
+
+  /* eslint-disable */
   componentWillMount() {
     // organise imported json-data and save into state
     let { record, current } = this.state;
 
     let items = [];
-    sheets14.map((item) => {
+    sheets14.map(item => {
       items.push({
         name: item.name,
-        data: item.data
+        data: item.data,
       });
     });
     /* // FIXME uncomment this! temporarily using 'only sheets14' for demo
@@ -101,7 +103,7 @@ export default class VisualizeNAV extends React.Component {
     current['name'] = record.items[which].name;
     current['data'] = record.items[which].data;
 
-    this.setState({record, current});
+    this.setState({ record, current });
 
     /*if (isDev) {
       console.log('componentWillMount');
@@ -111,44 +113,48 @@ export default class VisualizeNAV extends React.Component {
   }
 
   handleMenuSelection = (event, index, selectedValue) => {
-      //this.handleUserInput(value);
-      let { record, current } = this.state;
+    //this.handleUserInput(value);
+    let { record, current } = this.state;
 
-      if (isDev) {
-        console.log('handleMenuSelection');
-        console.log('userInput.selectedValue -> ' + selectedValue);
-        //-console.log('current -> ' + JSON.stringify(current));
-        //console.log('record -> ' + JSON.stringify(record));
+    if (isDev) {
+      console.log('handleMenuSelection');
+      console.log('userInput.selectedValue -> ' + selectedValue);
+      //-console.log('current -> ' + JSON.stringify(current));
+      //console.log('record -> ' + JSON.stringify(record));
+    }
+
+    current['name'] = selectedValue; //record.items[selectedValue].name;
+    record.items.map(item => {
+      if (selectedValue === item.name) {
+        current['name'] = item.name;
+        current['data'] = item.data;
       }
+    });
+    this.setState({ current });
 
-      current['name'] = selectedValue;//record.items[selectedValue].name;
-      record.items.map((item) => {
-        if (selectedValue === item.name) {
-          current['name'] = item.name;
-          current['data'] = item.data;
-        }
-      });
-      this.setState({ current });
-
-      /*if (isDev) {
+    /*if (isDev) {
         console.log('handleUserInput');
         console.log('current -> ' + JSON.stringify(current));
       }*/
-  }
+  };
 
+  /* eslint-enable */
   prepareMenuOptions() {
     const { record, current } = this.state;
-    const { translate } = this.context;
+    //const { translate } = this.context;
 
-    const menuItems = Object.keys(record.items).map((itemKey, index) =>
-    //const menuItems = record.names.map((itemKey) =>
-       <MenuItem
-         style={{fontSize: 'medium'}} focusState={'focused'} checked={true}
-         key={itemKey} value={record.items[itemKey].name}
-         primaryText={record.items[itemKey].name}
-         //primaryText={translate('pos.vis.nav.menu.options.'+itemKey)}
-       />
-    )
+    const menuItems = Object.keys(record.items).map(itemKey => (
+      //const menuItems = record.names.map((itemKey) =>
+      <MenuItem
+        style={{ fontSize: 'medium' }}
+        focusState={'focused'}
+        checked={true}
+        key={itemKey}
+        value={record.items[itemKey].name}
+        primaryText={record.items[itemKey].name}
+        //primaryText={translate('pos.vis.nav.menu.options.'+itemKey)}
+      />
+    ));
 
     return (
       <DropDownMenu value={current.name} onChange={this.handleMenuSelection}>
@@ -158,12 +164,23 @@ export default class VisualizeNAV extends React.Component {
   }
 
   prepareGraph() {
-    const { record, current } = this.state;
-    const { translate } = this.context;
+    const { current } = this.state;
+    //const { translate } = this.context;
 
     const months = [
-      "Januar", "Februar", "Mars", "April", "Mai",
-      "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"];
+      'Januar',
+      'Februar',
+      'Mars',
+      'April',
+      'Mai',
+      'Juni',
+      'Juli',
+      'August',
+      'September',
+      'Oktober',
+      'November',
+      'Desember',
+    ];
 
     /* // test & verify with only one year
     let graphData = [];
@@ -184,56 +201,52 @@ export default class VisualizeNAV extends React.Component {
 
     // go thru all years
     let series = [];
-    current.data.map((currentData) => {
+    // eslint-disable-next-line
+    current.data.map(currentData => {
       let graphData = [];
-      let xTitle = "Month";
-      let yTitle = "";
       let year = '';
 
+      // eslint-disable-next-line
       Object.keys(currentData).map((itemKey, index) => {
-
         if (itemKey !== 'Year') {
+          // eslint-disable-next-line
           graphData.push({
             x: months.indexOf(itemKey),
-            y: currentData[itemKey]
+            y: currentData[itemKey],
           });
-        }
-        else {
+        } else {
           year = currentData[itemKey];
         }
       });
       //if (series.length<3) { // temporarily we limit series for demo
-        series.push({
+      series.push({
         title: year,
         disabled: false,
-        data: graphData
+        data: graphData,
       });
-    //}
-
+      //}
     });
 
-    const xTitle = "";
-    const yTitle = "";
+    const xTitle = '';
+    const yTitle = '';
 
-    return(
-
+    return (
       <div>
-        <div style={styles.left}
-          className="legend">
+        <div style={styles.left} className="legend">
           <DiscreteColorLegend
             //width={600}
             orientation={'horizontal'}
             items={series}
             /*onItemClick={(obj, number) => {
-              this.setState({'selectedSeries': obj.title});
-              //console.log('legend.onClick -> ' + obj.title);
+            this.setState({'selectedSeries': obj.title});
+            //console.log('legend.onClick -> ' + obj.title);
             }}*/
-            onItemMouseEnter={(item, index, event) => {
-              this.setState({'selectedSeries': item.title});
+            onItemMouseEnter={(item, index, event) => { // eslint-disable-line
+              this.setState({ selectedSeries: item.title });
               //console.log('legend.onItemMouseEnter -> ' + item.title);
             }}
-            onItemMouseLeave={(item, index, event) => {
-              this.setState({'selectedSeries': ''});
+            onItemMouseLeave={(item, index, event) => { // eslint-disable-line
+              this.setState({ selectedSeries: '' });
             }}
           />
         </div>
@@ -243,23 +256,24 @@ export default class VisualizeNAV extends React.Component {
             //xDomain={lastDrawLocation && [lastDrawLocation.left, lastDrawLocation.right]}
             width={800}
             height={400}
-            >
-
+          >
             <HorizontalGridLines />
 
-            <YAxis hideTicks/>
-            <YAxis title={yTitle}
+            <YAxis hideTicks />
+            <YAxis
+              title={yTitle}
               left={20}
               tickFormat={v => v * 1.3}
-              style={{text: {fontSize:'xsmall', fontWeight: 200}}}
+              style={{ text: { fontSize: 'xsmall', fontWeight: 200 } }}
             />
 
             {/*<XAxis title={xTitle} />*/}
             {/* <XAxis bottom={0} hideLine title={xTitle} /> */}
-            <XAxis title={xTitle}
+            <XAxis
+              title={xTitle}
               tickValues={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
-              tickFormat={v => `${months[v]?months[v]:''}`}
-              style={{text: {fontSize:'xsmall', fontWeight: 200}}}
+              tickFormat={v => `${months[v] ? months[v] : ''}`}
+              style={{ text: { fontSize: 'xsmall', fontWeight: 200 } }}
             />
 
             {series.map(entry => (
@@ -268,9 +282,10 @@ export default class VisualizeNAV extends React.Component {
                 data={entry.data}
                 //strokeStyle={'dashed'}
                 style={
-                  (entry.title===this.state.selectedSeries)?
-                    {strokeWidth: 5}:{strokeWidth: 2}
-                  }
+                  entry.title === this.state.selectedSeries
+                    ? { strokeWidth: 5 }
+                    : { strokeWidth: 2 }
+                }
               />
             ))}
 
@@ -279,7 +294,6 @@ export default class VisualizeNAV extends React.Component {
                 lastDrawLocation: area
               });
             }} />*/}
-
           </FlexibleWidthXYPlot>
         </div>
         {/* <div>
@@ -293,13 +307,8 @@ export default class VisualizeNAV extends React.Component {
         </div> */}
 
         <div>
-        {(isDev===true) && (
-          <span>
-          {JSON.stringify(this.state.current)}
-        </span>
-        )}
-      </div>
-
+          {isDev === true && <span>{JSON.stringify(this.state.current)}</span>}
+        </div>
       </div>
     );
   }
@@ -307,25 +316,18 @@ export default class VisualizeNAV extends React.Component {
   render() {
     return (
       <div>
-
-        <Card key="one1"
-          style={styles.card}
-          >
+        <Card key="one1" style={styles.card}>
           <CardHeader
             title="Visualize NAV data"
             subtitle="Sesongjusterte hovedtall om arbeidsmarkedet"
             actAsExpander={false}
             showExpandableButton={false}
-            titleStyle={{fontSize: 'large'}}
-            subtitleStyle={{fontSize: 'medium'}}
+            titleStyle={{ fontSize: 'large' }}
+            subtitleStyle={{ fontSize: 'medium' }}
           />
-          <CardActions
-            style={styles.cardText}
-            >
+          <CardActions style={styles.cardText}>
             {/*<FlatButton label="todo-Action1" />*/}
-            <div>
-              {this.prepareMenuOptions()}
-            </div>
+            <div>{this.prepareMenuOptions()}</div>
           </CardActions>
           <CardText style={styles.cardText}>
             <Container>
@@ -337,8 +339,7 @@ export default class VisualizeNAV extends React.Component {
             </Container>
           </CardText>
         </Card>
-
       </div>
-    )
+    );
   }
 }
