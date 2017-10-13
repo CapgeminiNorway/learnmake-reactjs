@@ -127,7 +127,7 @@ function BadBrowser(props) {
 }
 const browserHandler = {
   ie: browser => <BadBrowser browser={browser} />,
-  default: () => <ShowMainApp />,
+  default: (browser) => <ShowMainApp browser={browser} />,
 };
 
 class App extends Component {

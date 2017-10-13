@@ -39,6 +39,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "lint": "yarn eslint --ext .jsx .",
+    "lint:fix": "yarn eslint --ext .jsx --fix .",
     "heroku-prebuild": "echo TODO This runs before Heroku installs dependencies.",
     "heroku-postbuild": "echo TODO This runs Heroku installs dependencies."
   },
