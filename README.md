@@ -16,7 +16,7 @@ Here comes some useful links...
 
 ## Online Demo  
 
-Deployed on Heroku! [click for online demo](https://cat-reactjs.herokuapp.com/)    
+Deployed on Heroku! [click for online demo](https://demo-using-reactjs.herokuapp.com/)    
 
 
 ## Setup development environment    
