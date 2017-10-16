@@ -21,5 +21,6 @@ export const myConfig = {
     development: 'todo: api...localhost...',
     production: 'todo: api...herokuapp.com',
   },
-  github: 'https://github.com/zeusbaba/demo-using-reactjs',
+  github: 'https://github.com/CapgeminiNorway/demo-using-reactjs',
+  heroku: 'https://demo-using-reactjs.herokuapp.com',
 };
