@@ -1,12 +1,12 @@
-# demo-using-reactjs
-Demo Playground using React.js  
+# using-reactjs
+Learn-Make using React.js  
 
 The main goal is to present functional demo by using emerging frameworks. *Learn -> Make -> Share!*      
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).  
 And we are using [React.js](https://facebook.github.io/react/), [admin-on-rest](https://marmelab.com/admin-on-rest/), [material.ui](http://www.material-ui.com/#/), [react-vis](https://uber.github.io/react-vis), and few more open source libs.      
 
 **Learning by Doing..!**  
-Here comes some useful links...   
+Some useful links...   
 
 - The shiny glory [React.js >>](https://reactjs.org/)   
 - A nice book for learning ReactJS [>> survivejs](https://survivejs.com/react/getting-started/introduction-to-react/)  
@@ -16,7 +16,7 @@ Here comes some useful links...
 
 ## Online Demo  
 
-Deployed on Heroku! [click for online demo](https://demo-using-reactjs.herokuapp.com/)    
+Deployed on Heroku! [click for online demo](https://using-reactjs.herokuapp.com/)    
 
 
 ## Setup development environment    
