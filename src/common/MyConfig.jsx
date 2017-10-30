@@ -1,5 +1,13 @@
-// eslint-disable-next-line
-export const isDev = process.env.NODE_ENV !== 'production' ? true : false;
+export const isDev = process.env.NODE_ENV !== 'production' ? true : false; // eslint-disable-line
+
+export const isLocalHost = hostname => {
+  // call like this; isLocalHost(window.location.hostname)
+  return !!(
+    hostname === 'localhost' ||
+    hostname === '[::1]' ||
+    hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
+  );
+};
 
 export const myConfig = {
   authentication: {
