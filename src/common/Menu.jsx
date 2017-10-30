@@ -34,13 +34,13 @@ const Menu = ({ resources, onMenuTap, translate, logout }) => ( // eslint-disabl
 
     <Divider />
 
-    <MenuItem
+    {/* <MenuItem
       key="gqlexample"
       containerElement={<Link to={`/gqlexample`} />}
       primaryText={translate(`pos.gql.example`)}
       leftIcon={<IconCode />}
       //onTouchTap={onMenuTap}
-    />
+    /> */}
 
     <Divider />
     <MenuItem

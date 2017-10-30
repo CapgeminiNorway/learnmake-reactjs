@@ -24,7 +24,7 @@ How to enable ESLINT via the easiest way?
 4) now we are ready!
   run this;
     yarn eslint --ext .jsx --fix .
-  then fix your code based the errors you see 
+  then fix your code based the errors you see
 
 additionally; when you need you can also disable rules with inline comments, see;
 https://eslint.org/docs/user-guide/configuring#disabling-rules-with-inline-comments
@@ -33,4 +33,13 @@ https://eslint.org/docs/user-guide/configuring#disabling-rules-with-inline-comme
 
 module.exports = {
   extends: ['last', 'prettier/react', 'plugin:react/recommended'],
+  "rules": {
+    "no-console": "off",
+    "no-undef": "off",
+    "react/no-unescaped-entities": "off",
+    "no-useless-escape": "off",
+    "no-useless-constructor": "off",
+    "react/display-name": "off",
+    "react/prop-types": "off"
+  }
 };

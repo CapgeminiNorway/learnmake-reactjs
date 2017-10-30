@@ -5,15 +5,15 @@ import Tbd from './Tbd';
 import Config from './Configuration';
 import VisExample from './../pages/VisExample';
 import VisualizeNAV from './../pages/VisualizeNAV';
-import GraphQLExample from './../pages/GraphQLExample';
+//import GraphQLExample from './../pages/GraphQLExample';
 
 /* eslint-disable */
 export default [
-  <Route exact path="/visnav" component={VisualizeNAV} />,
-  <Route exact path="/visexample" component={VisExample} />,
+  <Route key="100" exact path="/visnav" component={VisualizeNAV} />,
+  <Route key="101" exact path="/visexample" component={VisExample} />,
 
-  <Route exact path="/gqlexample" component={GraphQLExample} />,
+  // TODO <Route exact path="/gqlexample" component={GraphQLExample} />,
 
-  <Route exact path="/config" component={Config} />,
-  <Route exact path="/tbd" component={Tbd} />,
+  <Route key="102" exact path="/config" component={Config} />,
+  <Route key="103" exact path="/tbd" component={Tbd} />,
 ];
