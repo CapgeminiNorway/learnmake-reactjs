@@ -23,12 +23,12 @@ Deployed on Heroku! [click for online demo](https://using-reactjs.herokuapp.com/
 
 Getting up and running for your dev-env is as easy as 1, 2, 3.  
 
-1. Make sure you have [NodeJS](https://nodejs.org/), [npm](https://www.npmjs.com/), and [Yarn](https://yarnpkg.com) installed.  
+1. Make sure you have [NodeJS](https://nodejs.org/), [npm](https://www.npmjs.com/), and [Yarn](https://yarnpkg.com) installed, _see [package.json](package.json) for the required versions._  
 
 2. Install your dependencies  
 
     ```
-    cd path/to/demo-using-reactjs; yarn install
+    cd path/to/using-reactjs; yarn  
     ```
 
 3. Start your app
@@ -36,5 +36,3 @@ Getting up and running for your dev-env is as easy as 1, 2, 3.
     ```
     yarn start
     ```
-
-
