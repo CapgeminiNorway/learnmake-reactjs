@@ -10,7 +10,7 @@ Some useful links...
 
 - The shiny glory [React.js >>](https://reactjs.org/)   
 - A nice book for learning ReactJS [>> survivejs](https://survivejs.com/react/getting-started/introduction-to-react/)  
-- Very useful open source library using React.js and Material-ui [>> admin-on-rest](https://marmelab.com/admin-on-rest/)  
+- Very useful open source library using React.js and Material-ui [>> react-admin](https://marmelab.com/react-admin/)  
 - A set of React components that implement Google's Material Design [>> Material UI](http://www.material-ui.com/)  
 - React visualization library [react-vis](https://uber.github.io/react-vis)  
 
