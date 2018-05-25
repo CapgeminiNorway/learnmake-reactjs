@@ -41,9 +41,9 @@ import {
   number,
   required,
   translate,
-} from 'admin-on-rest';
+} from 'react-admin';
 import RichTextInput from 'aor-rich-text-input';
-import Chip from 'material-ui/Chip';
+import Chip from '@material-ui/core/Chip';
 
 const QuickFilter = translate(({ label, translate }) => (
   <Chip style={{ marginBottom: 8 }}>{translate(label)}</Chip>

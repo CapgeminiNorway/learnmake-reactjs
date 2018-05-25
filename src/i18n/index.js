@@ -1,4 +1,4 @@
-import { englishMessages } from 'admin-on-rest';
+import { englishMessages } from 'react-admin';
 import norwegianMessages from 'aor-language-norwegian';
 
 import customEnglishMessages from './en';

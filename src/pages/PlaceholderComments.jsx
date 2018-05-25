@@ -23,14 +23,17 @@ import {
   Show,
   ShowButton,
   SimpleShowLayout,
-} from 'admin-on-rest';
-import PersonIcon from 'material-ui/svg-icons/social/person';
-import Avatar from 'material-ui/Avatar';
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
-import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
-import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
+} from 'react-admin';
+import PersonIcon from '@material-ui/icons/Person';
+import Avatar from '@material-ui/core/Avatar';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+
+import Button from '@material-ui/core/Button';
+import { Toolbar, ToolbarGroup } from '@material-ui/core/Toolbar';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import ChevronRight from '@material-ui/icons/ChevronRight';
 
 const CommentFilter = ({ ...props }) => (
   <Filter {...props}>
@@ -48,8 +51,8 @@ const CommentPagination = translate(
         <Toolbar>
           <ToolbarGroup>
             {page > 1 && (
-              <FlatButton
-                primary
+              <Button
+                size={'small'}
                 key="prev"
                 label={translate('aor.navigation.prev')}
                 icon={<ChevronLeft />}
@@ -57,8 +60,8 @@ const CommentPagination = translate(
               />
             )}
             {page !== nbPages && (
-              <FlatButton
-                primary
+              <Button
+                size={'small'}
                 key="next"
                 label={translate('aor.navigation.next')}
                 icon={<ChevronRight />}
@@ -85,15 +88,15 @@ const CommentGrid = translate(({ ids, data, basePath, translate }) => (
   <div style={{ margin: '1em' }}>
     {ids.map(id => (
       <Card key={id} style={cardStyle}>
-        <CardHeader
+        <CardContent
           title={<TextField record={data[id]} source="author.name" />}
           subtitle={<DateField record={data[id]} source="created_at" />}
           avatar={<Avatar icon={<PersonIcon />} />}
         />
-        <CardText>
+        <CardContent>
           <TextField record={data[id]} source="body" />
-        </CardText>
-        <CardText>
+        </CardContent>
+        <CardContent>
           {translate('comment.list.about')}&nbsp;
           <ReferenceField
             resource="comments"
@@ -104,7 +107,7 @@ const CommentGrid = translate(({ ids, data, basePath, translate }) => (
           >
             <TextField source="title" />
           </ReferenceField>
-        </CardText>
+        </CardContent>
         <CardActions style={{ textAlign: 'right' }}>
           {/* <EditButton resource="posts" basePath={basePath} record={data[id]} /> */}
           <ShowButton resource="posts" basePath={basePath} record={data[id]} />

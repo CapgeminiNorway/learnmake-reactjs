@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-import { Card, CardActions, CardText, CardHeader } from 'material-ui/Card';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
 import { Container, Row, Col } from 'react-grid-system';
 
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import './Vis.css';
 import {
@@ -112,8 +114,9 @@ export default class VisualizeNAV extends Component {
     }*/
   }
 
-  handleMenuSelection = (event, index, selectedValue) => {
+  handleMenuSelection = (event) => {
     //this.handleUserInput(value);
+    const selectedValue = event.target.value;
     let { record, current } = this.state;
 
     if (isDev) {
@@ -144,22 +147,23 @@ export default class VisualizeNAV extends Component {
     //const { translate } = this.context;
 
     const menuItems = Object.keys(record.items).map(itemKey => (
-      //const menuItems = record.names.map((itemKey) =>
+
       <MenuItem
         style={{ fontSize: 'medium' }}
         focusState={'focused'}
         checked={true}
         key={itemKey}
         value={record.items[itemKey].name}
-        primaryText={record.items[itemKey].name}
         //primaryText={translate('pos.vis.nav.menu.options.'+itemKey)}
-      />
+      >
+        {record.items[itemKey].name}
+      </MenuItem>
     ));
 
     return (
-      <DropDownMenu value={current.name} onChange={this.handleMenuSelection}>
+      <Select value={current.name} onChange={this.handleMenuSelection}>
         {menuItems}
-      </DropDownMenu>
+      </Select>
     );
   }
 
@@ -317,7 +321,7 @@ export default class VisualizeNAV extends Component {
     return (
       <div>
         <Card key="one1" style={styles.card}>
-          <CardHeader
+          <CardContent
             title="Visualize NAV data"
             subtitle="Sesongjusterte hovedtall om arbeidsmarkedet"
             actAsExpander={false}
@@ -329,7 +333,7 @@ export default class VisualizeNAV extends Component {
             {/*<FlatButton label="todo-Action1" />*/}
             <div>{this.prepareMenuOptions()}</div>
           </CardActions>
-          <CardText style={styles.cardText}>
+          <CardContent style={styles.cardText}>
             <Container>
               <Row>
                 <Col xs={12} md={12}>
@@ -337,7 +341,7 @@ export default class VisualizeNAV extends Component {
                 </Col>
               </Row>
             </Container>
-          </CardText>
+          </CardContent>
         </Card>
       </div>
     );

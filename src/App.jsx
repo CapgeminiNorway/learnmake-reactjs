@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import {
-  Admin,
-  Resource, //Delete,
-  jsonServerRestClient,
-  //translate,
-} from 'admin-on-rest';
-
-//import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { Admin, Resource } from 'react-admin';
+import jsonServerProvider from 'ra-data-json-server';
 
 import GitHubForkRibbon from 'react-github-fork-ribbon';
 
-import PostIcon from 'material-ui/svg-icons/action/book';
-import CommentIcon from 'material-ui/svg-icons/communication/chat-bubble';
+import PostIcon from '@material-ui/icons/Book';
+import CommentIcon from '@material-ui/icons/ChatBubble';
 import { PostList, PostShow } from './pages/PlaceholderPosts';
 import { CommentList, CommentShow } from './pages/PlaceholderComments';
 
@@ -30,38 +22,18 @@ import Dashboard from './common/Dashboard';
 
 import BrowserDetection from 'react-browser-detection';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+
 import createHistory from 'history/createBrowserHistory';
 const history = createHistory();
 
-/* // TODO create custom theme
-import {
-  cyan500, cyan700, orangeA500, orangeA700,
-  pinkA200,
-  grey100, grey300, grey400, grey500,
-  white, darkBlack, fullBlack,
-} from 'material-ui/styles/colors';
-import { fade } from 'material-ui/utils/colorManipulator';
-import spacing from 'material-ui/styles/spacing';
-const myTheme = {
-    spacing: spacing,
-    fontFamily: 'Roboto, sans-serif',
-    palette: {
-      primary1Color: orangeA500, //cyan500,
-      primary2Color: orangeA700, //cyan700,
-      primary3Color: grey400,
-      accent1Color: pinkA200,
-      accent2Color: grey100,
-      accent3Color: grey500,
-      textColor: darkBlack,
-      alternateTextColor: white,
-      canvasColor: white,
-      borderColor: grey300,
-      disabledColor: fade(darkBlack, 0.3),
-      pickerHeaderColor: cyan500,
-      clockCircleColor: fade(darkBlack, 0.07),
-      shadowColor: fullBlack,
-    },
-};*/
+const theme = createMuiTheme({
+  palette: {
+    type: 'dark', // Switching the dark mode on is a single property value change.
+  },
+});
+
+const i18nProvider = locale => translations[locale];
 
 function ShowMainApp(props) {// eslint-disable-line
   return (
@@ -69,12 +41,10 @@ function ShowMainApp(props) {// eslint-disable-line
       <div>
         <Admin
           title={'Learn -> Make -> Share!'}
-          // TODO title={translate('pos.main.title')}
-          restClient={jsonServerRestClient(myConfig.backend.placeholder)}
-          theme={getMuiTheme(lightBaseTheme)}
-          //theme={getMuiTheme(myTheme)}
+          dataProvider={jsonServerProvider(myConfig.backend.placeholder)}
+          theme={theme}
           locale="nb"
-          messages={translations}
+          i18nProvider={i18nProvider}
           history={history}
           appLayout={Layout}
           customRoutes={customRoutes}

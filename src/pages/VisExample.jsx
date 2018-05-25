@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import { Card, CardText } from 'material-ui/Card';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 //import '../node_modules/react-vis/dist/style.css';
 import './Vis.css';
@@ -34,7 +35,7 @@ class VisExample extends Component {
     return (
       <div>
         <Card key="one1">
-          <CardText>
+          <CardContent>
             <XYPlot width={800} height={400}>
               <VerticalGridLines />
               <HorizontalGridLines />
@@ -42,17 +43,17 @@ class VisExample extends Component {
               <YAxis title={yTitle} />
               <LineSeries data={data} />
             </XYPlot>
-          </CardText>
-          <CardText>
+          </CardContent>
+          <CardContent>
             <XYPlot width={800} height={400}>
               <VerticalBarSeries data={data} />
             </XYPlot>
-          </CardText>
-          <CardText>
+          </CardContent>
+          <CardContent>
             <XYPlot width={800} height={400}>
               <MarkSeries data={data} />
             </XYPlot>
-          </CardText>
+          </CardContent>
         </Card>
       </div>
     );

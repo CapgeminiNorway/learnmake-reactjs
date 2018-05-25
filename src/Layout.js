@@ -1,7 +1,15 @@
 import { connect } from 'react-redux';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import { Layout, defaultTheme } from 'admin-on-rest';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { Layout } from 'react-admin';
 
 export default connect(state => ({
-  theme: state.theme === 'dark' ? darkBaseTheme : defaultTheme,
+  theme: state.theme === 'dark' ? createMuiTheme({
+    palette: {
+      type: 'dark',
+    },
+  }) : createMuiTheme({
+    palette: {
+      type: 'light',
+    },
+  }),
 }))(Layout);
