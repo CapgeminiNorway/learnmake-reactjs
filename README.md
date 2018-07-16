@@ -28,7 +28,7 @@ Getting up and running for your dev-env is as easy as 1, 2, 3.
 2. Install your dependencies  
 
     ```
-    cd path/to/using-reactjs; yarn  
+    cd path/to/learnmake-reactjs; yarn  
     ```
 
 3. Start your app
